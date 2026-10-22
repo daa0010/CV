@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>CV - David Alonso Aguilar</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+      color: #1e293b; background-color: #ffffff; line-height: 1.4; font-size: 10.2px; 
+      -webkit-print-color-adjust: exact; print-color-adjust: exact; 
+    }
+    
+    .page { 
+      width: 210mm; height: 297mm; max-height: 297mm;
+      margin: 0 auto; 
+      padding: 10mm 12mm 9mm 12mm; 
+      display: flex; gap: 16px; 
+      background: #ffffff; 
+      box-sizing: border-box; 
+      overflow: hidden; 
+    }
+    
+    .sidebar-card { 
+      width: 67mm; border: 1px solid #cbd5e1; border-radius: 8px; 
+      padding: 14px 10px; display: flex; flex-direction: column; 
+      gap: 16px; background-color: #ffffff; flex-shrink: 0; 
+    }
+    .photo-container { display: flex; justify-content: center; margin-bottom: 2px; }
+    .photo-circle { 
+      width: 114px; height: 114px; border-radius: 50%; 
+      border: 2.5px solid #1d4ed8; display: flex; align-items: center; 
+      justify-content: center; text-align: center; color: #1e3a8a; 
+      font-size: 10px; font-weight: 500; line-height: 1.2; padding: 3px; overflow: hidden; 
+    }
+    .photo-circle img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+    
+    .sec-title { font-size: 10.8px; font-weight: 800; color: #0b192c; text-transform: uppercase; letter-spacing: 0.4px; display: flex; align-items: center; gap: 6px; margin-bottom: 5px; padding-bottom: 3px; border-bottom: 1px solid #cbd5e1; }
+    .bar-accent { color: #1d4ed8; font-size: 12px; line-height: 1; }
+    
+    .contact-item { display: flex; align-items: center; gap: 6px; font-size: 8.8px; color: #334155; text-decoration: none; margin-bottom: 5px; }
+    .contact-icon { width: 12px; height: 12px; color: #1d4ed8; flex-shrink: 0; }
+    
+    .tech-group { margin-bottom: 9px; }
+    .tech-group:last-child { margin-bottom: 0; }
+    .tech-group-title { font-size: 7.8px; font-weight: 700; color: #475569; text-transform: uppercase; margin-bottom: 3px; letter-spacing: 0.3px; }
+    .chips-flex { display: flex; flex-wrap: wrap; gap: 3px; }
+    
+    .chip { 
+      font-size: 7.6px; 
+      font-weight: 600; 
+      padding: 1.5px 5px; 
+      border-radius: 3.5px; 
+      background-color: #f1f5f9; 
+      border: 1px solid #cbd5e1; 
+      color: #334155; 
+      display: inline-block; 
+      white-space: nowrap; 
+    }
+    
+    .lang-item { margin-bottom: 6.5px; }
+    .lang-item:last-child { margin-bottom: 0; }
+    .lang-name { font-size: 8.6px; font-weight: 700; color: #0f172a; margin-bottom: 2px; }
+    .lang-track { width: 100%; height: 12px; background-color: #e2e8f0; border-radius: 3px; overflow: hidden; }
+    .lang-fill { height: 100%; display: flex; align-items: center; justify-content: center; color: #ffffff; font-size: 7.2px; font-weight: 800; letter-spacing: 0.4px; }
+    .fill-en { width: 86%; background-color: #1d4ed8; }
+    .fill-es { width: 100%; background-color: #0b192c; }
+    .fill-ca { width: 100%; background-color: #0b192c; }
+    .fill-fr { width: 44%; background-color: #475569; }
+    
+    .main-col { flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+    .header-group { display: flex; flex-direction: column; gap: 0px; }
+    .main-header { margin-bottom: 0px; }
+    .main-header h1 { font-size: 22px; font-weight: 900; color: #0b192c; letter-spacing: -0.3px; line-height: 1.1; }
+    .main-header .title-sub { font-size: 13px; font-weight: 700; color: #1d4ed8; margin-top: 2px; letter-spacing: 0.2px; }
+    .main-divider { border: 0; border-bottom: 2px solid #0b192c; margin-top: 4px; margin-bottom: 14px; }
+    
+    .main-section { display: flex; flex-direction: column; gap: 4px; }
+    .profile-body { font-size: 9.8px; color: #334155; line-height: 1.42; text-align: justify; }
+    
+    .entry-item { margin-bottom: 5px; }
+    .entry-item:last-child { margin-bottom: 0; }
+    .entry-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.5px; }
+    .entry-name { font-size: 10px; font-weight: 700; color: #0b192c; }
+    .entry-right { font-size: 8.8px; color: #475569; font-weight: 500; white-space: nowrap; }
+    .entry-bullets { list-style-type: none; padding-left: 0; margin-top: 2px; }
+    .entry-bullets li { position: relative; padding-left: 10px; font-size: 9.5px; color: #334155; line-height: 1.38; margin-bottom: 1.5px; }
+    .entry-bullets li::before { content: "•"; position: absolute; left: 0; color: #0f172a; font-size: 9px; }
+    .desc-text { font-size: 9.3px; color: #475569; line-height: 1.38; margin-top: 1.5px; }
+    
+    .incorporacion-box { background-color: #f1f5f9; border-left: 3.5px solid #1d4ed8; border-radius: 0 4px 4px 0; padding: 6px 10px; font-size: 9px; color: #334155; line-height: 1.38; margin-top: 2px; }
+    
+    @media print {
+      body { background-color: #ffffff; margin: 0; padding: 0; }
+      .page { width: 210mm; height: 297mm; margin: 0; padding: 10mm 12mm 9mm 12mm; border: none; }
+      @page { size: A4 portrait; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <aside class="sidebar-card">
+    <div>
+      <div class="photo-container">
+        <div class="photo-circle"><img src="imagecv.png" onerror="this.onerror=null; this.parentNode.innerHTML='Foto David<br>Alonso<br>Aguilar';" alt="David Alonso Aguilar"></div>
+      </div>
+    </div>
+    
+    <div>
+      <div class="sec-title"><span class="bar-accent">▍</span> CONTACTO</div>
+      <div class="contact-item"><svg class="contact-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg><span>Sevilla, España</span></div>
+      <a class="contact-item" href="tel:+34663481447"><svg class="contact-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg><span>663 481 447</span></a>
+      <a class="contact-item" href="mailto:davidalonsoaguilar97@gmail.com"><svg class="contact-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg><span>davidalonsoaguilar97@gmail.com</span></a>
+      <a class="contact-item" href="https://linkedin.com/in/david-alonso-aguilar" target="_blank" rel="noopener noreferrer"><svg class="contact-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg><span>in/david-alonso-aguilar</span></a>
+      <a class="contact-item" href="https://github.com/fireshadowdev" target="_blank" rel="noopener noreferrer"><svg class="contact-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg><span>github.com/fireshadowdev</span></a>
+    </div>
+    
+    <div>
+      <div class="sec-title"><span class="bar-accent">▍</span> COMPETENCIAS TÉCNICAS</div>
+      
+      <div class="tech-group">
+        <div class="tech-group-title">ARQUITECTURA & BACKEND</div>
+        <div class="chips-flex">
+          <span class="chip">Java</span>
+          <span class="chip">Kotlin</span>
+          <span class="chip">POO / DAO</span>
+          <span class="chip">JDBC</span>
+          <span class="chip">JUnit</span>
+          <span class="chip">Maven</span>
+          <span class="chip">JSON</span>
+          <span class="chip">XML (XSD, XPath)</span>
+        </div>
+      </div>
+      
+      <div class="tech-group">
+        <div class="tech-group-title">BASES DE DATOS</div>
+        <div class="chips-flex">
+          <span class="chip">Oracle SQL</span>
+          <span class="chip">PL/SQL</span>
+          <span class="chip">MySQL</span>
+          <span class="chip">SQLite</span>
+          <span class="chip">Modelado E/R</span>
+        </div>
+      </div>
+      
+      <div class="tech-group">
+        <div class="tech-group-title">FRONTEND & MOBILE</div>
+        <div class="chips-flex">
+          <span class="chip">Android Studio</span>
+          <span class="chip">Android SDK</span>
+          <span class="chip">MVVM / MVC</span>
+          <span class="chip">Java Swing</span>
+          <span class="chip">JavaScript</span>
+          <span class="chip">HTML5</span>
+          <span class="chip">CSS3</span>
+          <span class="chip">Bootstrap</span>
+          <span class="chip">Figma</span>
+        </div>
+      </div>
+      
+      <div class="tech-group">
+        <div class="tech-group-title">HERRAMIENTAS & ENTORNOS</div>
+        <div class="chips-flex">
+          <span class="chip">Git / GitHub</span>
+          <span class="chip">Scrum</span>
+          <span class="chip">Metodologías Ágiles</span>
+          <span class="chip">Docker</span>
+          <span class="chip">Selenium</span>
+          <span class="chip">IntelliJ / Eclipse</span>
+          <span class="chip">VS Code</span>
+          <span class="chip">WordPress</span>
+          <span class="chip">CLI / Bash</span>
+          <span class="chip">ERP / CRM</span>
+          <span class="chip">Hardware IT</span>
+        </div>
+      </div>
+    </div>
+    
+    <div>
+      <div class="sec-title"><span class="bar-accent">▍</span> IDIOMAS</div>
+      <div class="lang-item"><div class="lang-name">Inglés</div><div class="lang-track"><div class="lang-fill fill-en">C1 - AVANZADO</div></div></div>
+      <div class="lang-item"><div class="lang-name">Español</div><div class="lang-track"><div class="lang-fill fill-es">NATIVO</div></div></div>
+      <div class="lang-item"><div class="lang-name">Catalán</div><div class="lang-track"><div class="lang-fill fill-ca">NATIVO</div></div></div>
+      <div class="lang-item"><div class="lang-name">Francés</div><div class="lang-track"><div class="lang-fill fill-fr">A1 - INICIAL</div></div></div>
+    </div>
+  </aside>
+  
+  <main class="main-col">
+    <div class="header-group">
+      <header class="main-header">
+        <h1>DAVID ALONSO AGUILAR</h1>
+        <div class="title-sub">Desarrollador de Software</div>
+        <hr class="main-divider">
+      </header>
+      
+      <section class="main-section">
+        <div class="sec-title"><span class="bar-accent">▍</span> PERFIL PROFESIONAL</div>
+        <p class="profile-body">Desarrollador de Aplicaciones Multiplataforma con conocimientos sólidos en programación orientada a objetos, diseño de bases de datos relacionales y desarrollo web. Soy analítico, resolutivo, adaptado al trabajo en equipo y con fuerte orientación al aprendizaje continuo y a las buenas prácticas de desarrollo. Busco incorporarme a un entorno profesional donde aportar valor técnico en desarrollo de software y continuar mi crecimiento en el sector tecnológico.</p>
+      </section>
+    </div>
+    
+    <section class="main-section">
+      <div class="sec-title"><span class="bar-accent">▍</span> PROYECTOS DE SOFTWARE DESTACADOS</div>
+      <div class="entry-item">
+        <div class="entry-head"><span class="entry-name">Sistema de Gestión Hotelera</span><span class="entry-right">Java · Swing · MySQL · JDBC · DAO</span></div>
+        <ul class="entry-bullets">
+          <li>Desarrollo de aplicación de escritorio basada en arquitectura modular <strong>DAO / MVC</strong> con separación estricta entre la interfaz (<strong>Java Swing</strong>), lógica de negocio y persistencia.</li>
+          <li>Implementación de operaciones transaccionales <strong>CRUD</strong>, control de reservas y validación de la lógica de negocio mediante <strong>pruebas unitarias</strong> (<strong>JUnit</strong>), con persistencia en <strong>MySQL</strong> vía <strong>JDBC</strong>.</li>
+        </ul>
+      </div>
+      <div class="entry-item">
+        <div class="entry-head"><span class="entry-name">PCbuild & PCscan · Plataforma Web & App de Realidad Aumentada</span><span class="entry-right">JavaScript · HTML5 · CSS3 · Unity (AR)</span></div>
+        <ul class="entry-bullets">
+          <li>Desarrollo de plataforma web interactiva con catálogo de hardware, carrito de compras dinámico y pasarela de simulación comercial mediante <strong>JavaScript</strong> nativo.</li>
+          <li>Implementación de app móvil en <strong>Unity</strong> de Realidad Aumentada para escaneo de marcadores y visualización 3D de productos con redirección directa al entorno web.</li>
+        </ul>
+      </div>
+      <div class="entry-item">
+        <div class="entry-head"><span class="entry-name">Kidwear · App Nativa Android & E-commerce UI/UX</span><span class="entry-right">Android Studio · Kotlin · Material Design 3</span></div>
+        <ul class="entry-bullets">
+          <li>Desarrollo de aplicación móvil nativa en <strong>Android Studio (Kotlin / XML)</strong> bajo principios de Material Design 3, integrando flujos completos de inicio, catálogo y checkout.</li>
+          <li>Prototipado previo en <strong>Figma</strong> (wireframes, sistemas de diseño y test de usabilidad) y estructuración modular de vistas y componentes interactivos.</li>
+        </ul>
+      </div>
+    </section>
+    
+    <section class="main-section">
+      <div class="sec-title"><span class="bar-accent">▍</span> EXPERIENCIA LABORAL</div>
+      <div class="entry-item">
+        <div class="entry-head"><span class="entry-name">Desarrollador Web Frontend · Picasso Business Center</span><span class="entry-right">2026</span></div>
+        <ul class="entry-bullets">
+          <li>Automatización de flujos de adaptación masiva de plantillas base en <strong>HTML</strong> y <strong>XML</strong> para su localización y posicionamiento geolocalizado en múltiples ciudades (<strong>SEO</strong>).</li>
+          <li>Implementación de flujos de internacionalización (<strong>i18n</strong>) y personalización dinámica de recursos visuales (idiomas, iconos, banderas y contenido adaptado) por región geográfica.</li>
+        </ul>
+      </div>
+      <div class="entry-item">
+        <div class="entry-head"><span class="entry-name">Desarrollador Web & WordPress · iGroup</span><span class="entry-right">2020</span></div>
+        <ul class="entry-bullets">
+          <li>Desarrollo y mantenimiento de páginas web corporativas utilizando <strong>WordPress</strong> y maquetación responsive con <strong>Bootstrap</strong>.</li>
+          <li>Control de versiones con <strong>Git / GitHub</strong> y optimización de rendimiento y despliegue de entornos web estables.</li>
+        </ul>
+      </div>
+      <div class="entry-item">
+        <div class="entry-head"><span class="entry-name">Gestión de Inversiones & Análisis Cuantitativo</span><span class="entry-right">2022 – 2026</span></div>
+        <ul class="entry-bullets">
+          <li>Ejecución de análisis técnico y fundamental de activos financieros, gestión de riesgo y distribución estratégica de capital en mercados de contado (spot) y derivados (futuros) a través de múltiples plataformas.</li>
+        </ul>
+      </div>
+    </section>
+    
+    <section class="main-section">
+      <div class="sec-title"><span class="bar-accent">▍</span> FORMACIÓN ACADÉMICA</div>
+      <div class="entry-item">
+        <div class="entry-head"><span class="entry-name">C.F.G.S. Desarrollo de Aplicaciones Multiplataforma (DAM) · Davante MEDAC</span><span class="entry-right">2025 – 2027</span></div>
+        <div class="desc-text">Especialización en desarrollo nativo Android (Kotlin), programación backend (Java SE), desarrollo web, persistencia relacional transaccional (Oracle SQL, PL/SQL, MySQL, SQLite) y diseño de arquitecturas MVC/MVVM.</div>
+      </div>
+      <div class="entry-item">
+        <div class="entry-head"><span class="entry-name">Itinerario Profesional: Programador Informático · Proyecto REDES+ · Ayto. de Sevilla</span><span class="entry-right">2020</span></div>
+        <div class="desc-text">Itinerario enfocado en programación de bases de datos relacionales, desarrollo de componentes software estructurados y sistemas informáticos.</div>
+      </div>
+      <div class="entry-item">D
+        <div class="entry-head"><span class="entry-name">Bachillerato de Ciencias y Tecnología (Bilingüe) · I.E.S. Ramón del Valle Inclán</span><span class="entry-right">2016</span></div>
+      </div>
+    </section>
+    
+    <div class="incorporacion-box"><strong>Incorporación:</strong> Disponibilidad inmediata para prácticas formativas (FCT) con objetivo de vinculación y progresión profesional.</div>
+  </main>
+</div>
+</body>
+</html>
